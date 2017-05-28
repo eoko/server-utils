@@ -2,12 +2,12 @@ const debug    = require('debug')('server:mongo');
 const mongoose = require('mongoose');
 const registry = require('@eoko/service-registry');
 
-module.exports = () => {
-  return new Promise((res) => {
-    const uri = registry.getService('mongo').getUri();
+module.exports = (url) => {
+  return () => new Promise((res) => {
+    const uri = url || registry.getService('mongo').getUri();
 
     debug(`connecting to ${uri}`);
-    mongoose.connect(uri);
+    mongoose.connect(`mongo://${uri}`);
 
     process.on('SIGINT', () => {
       mongoose.connection.close(() => {

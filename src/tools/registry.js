@@ -31,7 +31,6 @@ module.exports = () => {
       }
     ))
     .then(res => {
-      debug(`retry ${res.attempts}`);
-      registry.sync(res.body);
+      registry.sync(res);
     })
 };
