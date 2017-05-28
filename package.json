@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@eoko/service-registry": "^1.0.0"
+    "@eoko/service-registry": "^1.0.0",
+    "requestretry": "^1.12.0"
   }
 }
